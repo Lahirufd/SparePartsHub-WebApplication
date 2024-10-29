@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Header from '../../Components/Header/Header';
-import Footer from '../../Components/Footer/Footer';
-import styles from './LoginPage.module.css';
+import styles from './AdminLoginPage.module.css';
 
 const LoginPage = () => {
   const [username, setUsername] = useState('');
@@ -40,10 +38,9 @@ const LoginPage = () => {
 
   return (
     <div>
-      <Header />
       <div className={styles.centerWrapper}>
         <div className={styles.loginContainer}>
-          <h2>Login</h2>
+          <h2>Admin Login</h2>
           <form className={styles.loginForm} onSubmit={handleSubmit}>
             <div className={styles.formGroup}>
               <label htmlFor="username">Username</label>
@@ -71,12 +68,11 @@ const LoginPage = () => {
             {error && <p className={styles.errorMessage}>{error}</p>}
           </form>
           <div className={styles.accountOptions}>
-            <p>Don't have an account? <a href="/signup">Create your account.</a></p>
+            <p>Don't have an admin account? <a href="/adminsignup">Create your account as an admin.</a></p>
           </div>
-          <button className={styles.adminButton} onClick={() => window.location.href = '/adminlogin'}>Admin</button>
+          <button className={styles.adminButton} onClick={() => window.location.href = '/'}>Back</button>
         </div>
       </div>
-      <Footer />
     </div>
   );
 };
