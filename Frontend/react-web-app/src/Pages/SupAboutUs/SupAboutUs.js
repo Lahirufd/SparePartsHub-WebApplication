@@ -27,6 +27,26 @@ const AboutUs = () => {
             What really makes this company stand out is its unwavering commitment to authenticity, quality, and customer satisfaction. Mr. Uvindu’s intention behind the opening of Thelee Group is not only to distribute high-quality spare parts, but also to provide high-quality customer service.
           </p>
         </div>
+
+        <div className={styles.contactForm}>
+          <h2>Add Your Feedbacks Here</h2>
+          <form>
+            <div className={styles.formGroup}>
+              <label htmlFor="name">Name</label>
+              <input type="text" id="name" name="name" required />
+            </div>
+            <div className={styles.formGroup}>
+              <label htmlFor="email">Email</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+            <div className={styles.formGroup}>
+              <label htmlFor="complain">Comment</label>
+              <textarea id="complain" name="complain" required></textarea>
+            </div>
+            <button type="submit2">Send Feedback</button>
+          </form>
+        </div>
+
       </div>
       <Footer />
     </div>

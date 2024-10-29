@@ -16,6 +16,8 @@ import CusContact from './Pages/CusContact/CusContact';
 import SupplierHomePage from './Pages/SupplierHomePage/SupplierHomePage';
 import SupAboutUs from './Pages/SupAboutUs/SupAboutUs';
 import SupContact from './Pages/SupContact/SupContact';
+import CusProfilePage from './Pages/CusProfilePage/CusProfilePage';
+import SupProfilePage from './Pages/SupProfilePage/SupProfilePage';
 
 function App() {
   return (
@@ -32,6 +34,8 @@ function App() {
         <Route path="/suphome" element={<SupplierHomePage />} />
         <Route path="/supabout" element={<SupAboutUs />} />
         <Route path="/supcontact" element={<SupContact />} />
+        <Route path="/cusprofile" element={<CusProfilePage />} />
+        <Route path="/supprofile" element={<SupProfilePage />} />
       </Routes>
     </Router>
   );

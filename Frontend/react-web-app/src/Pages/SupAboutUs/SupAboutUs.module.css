@@ -60,3 +60,59 @@
     font-size: 1.1rem;
   }
 }
+
+/* Styling for contact form */
+.contactForm {
+  margin-top: 2rem;
+  background-color: #f8f9fa;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.contactForm h2 {
+  font-size: 2rem;
+  color: #1b1b1b;
+  margin-bottom: 1.5rem;
+}
+
+.formGroup {
+  margin-bottom: 1.5rem;
+}
+
+.formGroup label {
+  display: block;
+  font-size: 1.1rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.formGroup input,
+.formGroup textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  background-color: #f9f9f9;
+}
+
+.formGroup textarea {
+  resize: vertical;
+  min-height: 150px;
+}
+
+button[type="submit2"] {
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #333;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit2"]:hover {
+  background-color: #1b1b1b;
+}
