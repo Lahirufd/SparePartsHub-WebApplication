@@ -10,7 +10,8 @@ const SignupPage = () => {
     username: '',
     password: '',
     address: '',
-    telephone: ''
+    telephone: '',
+    role: 'customer' // Default to customer
   });
 
   const navigate = useNavigate();
@@ -64,6 +65,13 @@ const SignupPage = () => {
             <div className={styles.formGroup}>
               <label htmlFor="telephone">Telephone Number</label>
               <input type="tel" id="telephone" name="telephone" value={formData.telephone} onChange={handleChange} required />
+            </div>
+            <div className={styles.formGroup}>
+              <label htmlFor="role">Sign Up As</label>
+              <select id="role" name="role" value={formData.role} onChange={handleChange} className={styles.roleDropdown} required>
+                <option value="customer">Customer</option>
+                <option value="supplier">Supplier</option>
+              </select>
             </div>
             <button type="submit" className={styles.createAccountButton}>Create Account</button>
           </form>
