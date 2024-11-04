@@ -11,7 +11,7 @@ const SignupPage = () => {
     password: '',
     address: '',
     telephone: '',
-    role: 'customer' // Default to customer
+    role: 'customer'
   });
 
   const navigate = useNavigate();
@@ -25,7 +25,7 @@ const SignupPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch('http://localhost:8080/ums-api/users', {
+    fetch('http://localhost:8080/us-api/users', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
