@@ -92,7 +92,6 @@ const LoginPage = () => {
           <div className={styles.accountOptions}>
             <p>Don't have an account? <a href="/signup">Create your account.</a></p>
           </div>
-          <button className={styles.adminButton} onClick={() => window.location.href = '/adminlogin'}>Admin</button>
         </div>
       </div>
       <Footer />

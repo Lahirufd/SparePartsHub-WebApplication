@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styles from './Header.module.css';
 
 const Header = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const navigate = useNavigate();
 
   const handleMouseEnter = () => {
     setIsDropdownOpen(true);
@@ -31,11 +33,23 @@ const Header = () => {
           <li className={styles.navItem}>
             <a href="/contact" className={styles.navLink}>Contact us</a>
           </li>
-          <li className={styles.navItem}>
-            <a href="/login" className={styles.loginSignupButton}>Login/Signup</a>
-          </li>
         </ul>
       </nav>
+      {/* Login and Sign Up buttons */}
+      <div className={styles.authButtons}>
+        <button
+          className={`${styles.btn} ${styles.btnOutline}`}
+          onClick={() => navigate('/login')}
+        >
+          Login
+        </button>
+        <button
+          className={`${styles.btn} ${styles.btnPrimary}`}
+          onClick={() => navigate('/signup')}
+        >
+          Sign Up
+        </button>
+      </div>
     </header>
   );
 };

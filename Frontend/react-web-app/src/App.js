@@ -18,12 +18,6 @@ import SupAboutUs from './Pages/SupAboutUs/SupAboutUs';
 import SupContact from './Pages/SupContact/SupContact';
 import CusProfilePage from './Pages/CusProfilePage/CusProfilePage';
 import SupProfilePage from './Pages/SupProfilePage/SupProfilePage';
-import AdminLoginPage from './Pages/AdminLoginPage/AdminLoginPage';
-import AdminSignupPage from './Pages/AdminSignupPage/AdminSignupPage';
-import SHDashboard from './Pages/SHDashboard/SHDashboard';
-import TDashboard from './Pages/TDashboard/TDashboard';
-import MDashboard from './Pages/MDashboard/MDashboard';
-import DDashboard from './Pages/DDashboard/DDashboard';
 
 function App() {
   return (
@@ -42,12 +36,6 @@ function App() {
         <Route path="/supcontact" element={<SupContact />} />
         <Route path="/cusprofile" element={<CusProfilePage />} />
         <Route path="/supprofile" element={<SupProfilePage />} />
-        <Route path="/adminlogin" element={<AdminLoginPage />} />
-        <Route path="/adminsignup" element={<AdminSignupPage />} />
-        <Route path="/shdashboard" element={<SHDashboard />} />
-        <Route path="/tdashboard" element={<TDashboard />} />
-        <Route path="/mdashboard" element={<MDashboard />} />
-        <Route path="/ddashboard" element={<DDashboard />} />
       </Routes>
     </Router>
   );

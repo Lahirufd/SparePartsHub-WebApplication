@@ -21,7 +21,7 @@ const AdminDashboard = () => {
                 </div>
               </a>
             </div>
-            <Link to="/adminlogin">
+            <Link to="/">
               <button className={styles.logoutButton}>
                  Logout
               </button>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import Header from '../../Components/Header/Header';
 import Footer from '../../Components/Footer/Footer';
 import Slider from 'react-slick'; // Import Slider component
@@ -7,6 +8,8 @@ import "slick-carousel/slick/slick-theme.css";
 import styles from './HomePage.module.css';
 
 const HomePage = () => {
+  const navigate = useNavigate();
+  
   const settings = {
     dots: true,
     infinite: true,
@@ -76,7 +79,14 @@ const HomePage = () => {
             interested in supplying parts to our warehouse, we invite you to join our community. 
             Sign up today to access exclusive offers and services tailored to meet your needs.
           </p>
-          <a href="/login" className={styles.loginButton}>Login/Signup</a>
+          <div className={styles.buttonContainer}>
+            <button onClick={() => navigate('/signup')} className={`${styles.btn} ${styles.btnOutline}`}>
+              Sign Up
+            </button>
+            <button onClick={() => navigate('/login')} className={`${styles.btn} ${styles.btnPrimary}`}>
+              Login
+            </button>
+          </div>
         </section>
 
 
