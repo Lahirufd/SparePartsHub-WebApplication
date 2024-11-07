@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import styles from './AdminLoginPage.module.css';
+import styles from './LoginPage.module.css';
 
 const LoginPage = () => {
   const [username, setUsername] = useState('');
@@ -68,7 +68,7 @@ const LoginPage = () => {
             {error && <p className={styles.errorMessage}>{error}</p>}
           </form>
           <div className={styles.accountOptions}>
-            <p>Don't have an admin account? <a href="/adminsignup">Create your account as an admin.</a></p>
+            <p>Don't have an admin account? <a href="/signup">Create your account as an admin.</a></p>
           </div>
           <button className={styles.adminButton} onClick={() => window.location.href = '/'}>Back</button>
         </div>

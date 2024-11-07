@@ -22,17 +22,13 @@ const Header = () => {
           <li className={styles.navItem}>
             <a href="/cushome" className={styles.navLink}>Home</a>
           </li>
-          <li
-            className={`${styles.navItem} ${styles.dropdown}`}
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-          >
+          <li className={`${styles.navItem} ${styles.dropdown}`} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
             <span className={styles.navLink}>Services</span>
             {isDropdownOpen && (
               <ul className={styles.dropdownMenu}>
                 <li><a href="/items" className={styles.dropdownLink}>Buying Spare Parts</a></li>
                 <li><a href="/warranty-items" className={styles.dropdownLink}>Claim Warranty</a></li>
-                <li><a href="/repairitems" className={styles.dropdownLink}>Repair Spare Parts</a></li>
+                <li><a href="/repair-items" className={styles.dropdownLink}>Repair Spare Parts</a></li>
               </ul>
             )}
           </li>

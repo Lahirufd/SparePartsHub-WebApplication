@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import styles from './AdminSignupPage.module.css';
+import styles from './SignupPage.module.css';
 
 const SignupPage = () => {
   const [formData, setFormData] = useState({
@@ -74,7 +74,7 @@ const SignupPage = () => {
             <button type="submit" className={styles.createAccountButton}>Create Account</button>
           </form>
           <div className={styles.accountOptions}>
-            <p>Already have an account? <a href="/adminlogin">Login</a></p>
+            <p>Already have an account? <a href="/login">Login</a></p>
           </div>
           <button className={styles.adminButton} onClick={() => window.location.href = '/'}>Back</button>
         </div>

@@ -56,29 +56,56 @@
   padding: 2rem;
   background-color: #f9f9f9;
   border-radius: 8px;
-  text-align: left; /* Align text to the left */
+  text-align: left;
 }
 
-
-/* Products section layout */
 .productContent {
   display: flex;
-  align-items: flex-start; /* Align items at the start */
-  gap: 2rem; /* Space between the image and text */
+  align-items: flex-start;
+  gap: 2rem;
 }
 
 .productTile {
-  max-width: 250px; /* Set max-width for the tile */
-  flex-shrink: 0; /* Prevents the tile from shrinking */
+  max-width: 250px;
+  flex-shrink: 0;
 }
 
 .productImage {
-  max-width: 100%; /* Full width of the tile */
-  height: auto; /* Maintain aspect ratio */
-  border-radius: 8px; /* Rounded corners */
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* Product details container */
+.productDetails {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Button styling */
+.clickHereButton {
+  display: inline-block;
+  padding: 10px 15px;
+  background-color: rgb(19, 160, 19);
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  width: 150px;
+  text-align: center;
+  margin-top: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.clickHereButton:hover {
+  background-color: green;
 }
 
 /* Brands section styling */
+.brandsSection {
+  margin-top: 2rem;
+}
+
 .brandsSection h2 {
   font-size: 2rem;
   margin-bottom: 2rem;
@@ -95,32 +122,6 @@
 
 .brandLogos img {
   max-height: 150px;
-}
-
-
-/* Product details container */
-.productDetails {
-  display: flex;
-  flex-direction: column; /* Stack the description and button */
-}
-
-/* Button styling */
-.clickHereButton {
-  display: inline-block;
-  padding: 10px 15px; /* Adjust padding for height and width */
-  background-color: blue;
-  color: white; /* White text */
-  text-decoration: none; /* Remove underline */
-  border-radius: 5px; /* Rounded corners */
-  font-size: 1rem; /* Font size, adjust as needed */
-  width: 150px; /* Fixed width, adjust to your liking */
-  text-align: center; /* Center text inside the button */
-  margin-top: 1rem; /* Space above the button */
-  transition: background-color 0.3s ease; /* Smooth transition */
-}
-
-.clickHereButton:hover {
-  background-color: darkblue;
 }
 
 /* Login/Signup section styling */
@@ -144,18 +145,46 @@
   color: #555;
 }
 
-.loginButton {
-  background-color: #4CAF50; /* Green color */
-  color: white;
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.btn {
   padding: 10px 20px;
-  text-decoration: none;
   border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
   transition: background-color 0.3s ease;
+  text-decoration: none;
 }
 
-.loginButton:hover {
-  background-color: #45a049; /* Darker green on hover */
+.btnOutline {
+  background-color: transparent;
+  border: 2px solid #1b1b1b;
+  color: #1b1b1b;
 }
 
+.btnOutline:hover {
+  background-color: #1b1b1b;
+  color: white;
+}
 
+.btnPrimary {
+  background-color: blue;
+  color: white;
+}
 
+.btnPrimary:hover {
+  background-color: darkblue;
+}
+
+/* Footer styling */
+.footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #1b1b1b;
+  color: #fff;
+  border-radius: 8px;
+}

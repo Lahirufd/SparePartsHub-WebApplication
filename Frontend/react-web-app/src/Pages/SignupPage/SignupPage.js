@@ -78,7 +78,6 @@ const SignupPage = () => {
           <div className={styles.accountOptions}>
             <p>Already have an account? <a href="/login">Login</a></p>
           </div>
-          <button className={styles.adminButton} onClick={() => window.location.href = '/admin'}>Admin</button>
         </div>
       </div>
       <Footer />
