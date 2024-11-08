@@ -35,8 +35,8 @@ public class UserService {
         return userRepository.findByUsername(username);
     }
 
-    public int findUserIdByUsername(String username) {
-        return userRepository.findUserIdByUsername(username);
+    public int findIdByUsername(String username) {
+        return userRepository.findIdByUsername(username);
     }
 
     public String findRoleByUsername(String username) {
