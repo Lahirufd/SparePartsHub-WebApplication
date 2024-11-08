@@ -8,7 +8,7 @@ const SignupPage = () => {
     username: '',
     password: '',
     address: '',
-    telephone: '',
+    telNumber: '',
     role: 'Stock Handler'
   });
 
@@ -23,7 +23,7 @@ const SignupPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch('http://localhost:8080/ums-api/users', {
+    fetch('http://localhost:8081/as-api/admins', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -61,14 +61,14 @@ const SignupPage = () => {
             </div>
             <div className={styles.formGroup}>
               <label htmlFor="telephone">Telephone Number</label>
-              <input type="tel" id="telephone" name="telephone" value={formData.telephone} onChange={handleChange} required />
+              <input type="tel" id="telNumber" name="telNumber" value={formData.telNumber} onChange={handleChange} required />
             </div>
             <div className={styles.formGroup}>
               <label htmlFor="role">Sign Up As</label>
               <select id="role" name="role" value={formData.role} onChange={handleChange} className={styles.roleDropdown} required>
-                <option value="customer">Stock Handler</option>
-                <option value="supplier">Technician</option>
-                <option value="supplier">Manager</option>
+                <option value="Stock Handler">Stock Handler</option>
+                <option value="Technician">Technician</option>
+                <option value="Manager">Manager</option>
               </select>
             </div>
             <button type="submit" className={styles.createAccountButton}>Create Account</button>

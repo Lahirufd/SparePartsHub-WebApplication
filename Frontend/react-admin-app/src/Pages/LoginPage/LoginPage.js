@@ -10,29 +10,42 @@ const LoginPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch('http://localhost:8080/ums-api/login', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ username, password }),
-    });
+    try {
+      const response = await fetch('http://localhost:8081/as-api/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ username, password }),
+      });
 
-    if (response.ok) {
-      const userIdResponse = await fetch(`http://localhost:8080/ums-api/users?username=${username}`);
-      if (userIdResponse.ok) {
-        const userId = await userIdResponse.json();
-        localStorage.setItem('userId', userId);
-        
-        const result = await response.text();
-        alert(result);
-        navigate('/home');
+      if (response.ok) {
+        // Fetch user role from the backend
+        const roleResponse = await fetch(`http://localhost:8081/as-api/admins/role?username=${username}`);
+        if (roleResponse.ok) {
+          const role = await roleResponse.text();
+          
+          // Redirect based on the user's role
+          if (role === 'Director') {
+            navigate('/ddashboard');
+          } else if (role === 'Manager') {
+            navigate('/mdashboard');
+          } else if (role === 'Technician') {
+            navigate('/tdashboard');
+          } else if (role === 'Stock Handler') {
+            navigate('/shdashboard');
+          } else {
+            setError('Invalid role detected.');
+          }
+        } else {
+          setError('Failed to retrieve user role.');
+        }
       } else {
-        setError('Failed to retrieve user ID.');
+        const errorMsg = await response.text();
+        setError(errorMsg);
       }
-    } else {
-      const errorMsg = await response.text();
-      setError(errorMsg);
+    } catch (error) {
+      setError('An error occurred. Please try again.');
     }
   };
 
