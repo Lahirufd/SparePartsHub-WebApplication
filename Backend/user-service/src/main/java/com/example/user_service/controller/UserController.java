@@ -47,7 +47,7 @@ public class UserController {
 
     @GetMapping(path = "/users", params = "username")
     public int findUserIdByUsername(@RequestParam String username) {
-        return userService.findUserIdByUsername(username);
+        return userService.findIdByUsername(username);
     }
 
     @GetMapping(path = "/users/role", params = "username")
