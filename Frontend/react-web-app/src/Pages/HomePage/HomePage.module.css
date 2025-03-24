@@ -1,0 +1,190 @@
+/* General page styling */
+.mainContent {
+  padding: 2rem;
+  background-color: #f0f0f0;
+  position: relative;
+}
+
+/* Slider styling */
+.headerImage {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.slideContainer {
+  position: relative;
+  width: 100%;
+  padding-top: 32.73%; /* Aspect ratio for 1100:360 */
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.slideImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background-color: #000;
+}
+
+/* Welcome section styling */
+.welcomeSection {
+  margin-top: 2rem;
+  background-color: #1b1b1b;
+  color: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+}
+
+.welcomeSection h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.welcomeSection p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+/* Products section styling */
+.productsSection {
+  margin-top: 2rem;
+  padding: 2rem;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  text-align: left;
+}
+
+.productContent {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+.productTile {
+  max-width: 250px;
+  flex-shrink: 0;
+}
+
+.productImage {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* Product details container */
+.productDetails {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Button styling */
+.clickHereButton {
+  display: inline-block;
+  padding: 10px 15px;
+  background-color: rgb(19, 160, 19);
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  width: 150px;
+  text-align: center;
+  margin-top: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.clickHereButton:hover {
+  background-color: green;
+}
+
+/* Brands section styling */
+.brandsSection {
+  margin-top: 2rem;
+}
+
+.brandsSection h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #1b1b1b;
+}
+
+.brandLogos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.brandLogos img {
+  max-height: 150px;
+}
+
+/* Login/Signup section styling */
+.loginSection {
+  margin-top: 2rem;
+  padding: 2rem;
+  background-color: #f0f8ff;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.loginSection h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #1b1b1b;
+}
+
+.loginSection p {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  color: #555;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.btn {
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+}
+
+.btnOutline {
+  background-color: transparent;
+  border: 2px solid #1b1b1b;
+  color: #1b1b1b;
+}
+
+.btnOutline:hover {
+  background-color: #1b1b1b;
+  color: white;
+}
+
+.btnPrimary {
+  background-color: blue;
+  color: white;
+}
+
+.btnPrimary:hover {
+  background-color: darkblue;
+}
+
+/* Footer styling */
+.footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #1b1b1b;
+  color: #fff;
+  border-radius: 8px;
+}

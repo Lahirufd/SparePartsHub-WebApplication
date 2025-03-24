@@ -1,0 +1,93 @@
+/* General header styling */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #1b1b1b;
+  color: white;
+}
+
+/* Logo styling */
+.logo img {
+  height: 50px;
+  width: auto;
+}
+
+/* Navigation styling */
+.nav {
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;  /* Center the navigation items */
+}
+
+.navList {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.navItem {
+  margin-right: 6rem;  /* Increased space between items */
+  position: relative;  /* Necessary for dropdown positioning */
+}
+
+/* Link styling */
+.navLink {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: color 0.3s;
+}
+
+.navLink:hover {
+  color: blue;
+}
+
+/* Dropdown styling */
+.dropdownMenu {
+  display: none;  /* Initially hidden */
+  position: absolute;
+  background-color: #1b1b1b;
+  top: 100%;  /* Position below the parent */
+  left: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  width: 200px;  /* Set a fixed width for the dropdown */
+  z-index: 10;  /* Ensure the dropdown appears above other content */
+  opacity: 0;  /* Start with an invisible dropdown */
+  transform: translateY(-20px);  /* Make it appear slightly above initially */
+  transition: opacity 0.3s ease, transform 0.3s ease;  /* Smooth fade and slide */
+}
+
+/* Dropdown items */
+.dropdownMenu li {
+  padding: 0.75rem 1.5rem;  /* Larger padding */
+}
+
+.dropdownLink {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.dropdownLink:hover {
+  color: white;
+}
+
+/* Display dropdown on hover */
+.navItem:hover .dropdownMenu {
+  display: block;
+  opacity: 1;  /* Fade in */
+  transform: translateY(0);  /* Slide down */
+}
+
+/* Make dropdown items stay interactive */
+.navItem:hover .dropdownMenu li:hover {
+  background-color: #333;  /* Darker background on hover */
+}

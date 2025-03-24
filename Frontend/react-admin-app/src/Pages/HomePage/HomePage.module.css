@@ -1,0 +1,162 @@
+.minHScreen {
+  min-height: 100vh;
+  background-color: #f8f9fa;
+}
+
+.header {
+  background-color: #ffffff;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px 0;
+}
+
+.headerContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.logoContainer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.icon {
+  font-size: 2rem;
+}
+
+.buildingIcon {
+  font-size: 2.5rem;
+}
+
+.buttonContainer {
+  display: flex;
+  gap: 10px;
+}
+
+.btn {
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btnOutline {
+  background-color: transparent;
+  border: 2px solid #007bff;
+  color: #007bff;
+}
+
+.btnPrimary {
+  background-color: #007bff;
+  color: white;
+}
+
+.btnOutline:hover {
+  background-color: #007bff;
+  color: white;
+}
+
+.btnPrimary:hover {
+  background-color: #0056b3;
+}
+
+.hero {
+  text-align: center;
+  padding: 40px 20px;
+  background-color: #e9ecef;
+}
+
+.heroContent h2 {
+  font-size: 2rem;
+  color: #333;
+}
+
+.heroContent p {
+  font-size: 1.2rem;
+  color: #555;
+}
+
+.statsContainer {
+  padding: 40px 20px;
+}
+
+.statsGrid {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.card {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  flex: 1;
+  max-width: 200px;
+}
+
+.cardContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.statInfo {
+  text-align: center;
+}
+
+.statLabel {
+  font-size: 1rem;
+  color: #555;
+}
+
+.statValue {
+  font-size: 1.5rem;
+  color: #333;
+  font-weight: bold;
+}
+
+.featuresContainer {
+  padding: 40px 20px;
+}
+
+.sectionTitle {
+  text-align: center;
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.featuresGrid {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.featureCard {
+  max-width: 250px;
+}
+
+.companyInfo {
+  padding: 40px 20px;
+  background-color: #f1f3f5;
+}
+
+.companyContent {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.footer {
+  background-color: #333;
+  color: #ffffff;
+  text-align: center;
+  padding: 20px;
+}
