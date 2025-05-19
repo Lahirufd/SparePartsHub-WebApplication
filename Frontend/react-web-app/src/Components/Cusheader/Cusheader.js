@@ -28,7 +28,9 @@ const Header = () => {
               <ul className={styles.dropdownMenu}>
                 <li><a href="/items" className={styles.dropdownLink}>Buying Spare Parts</a></li>
                 <li><a href="/warranty-items" className={styles.dropdownLink}>Claim Warranty</a></li>
-                <li><a href="/repair-items" className={styles.dropdownLink}>Repair Spare Parts</a></li>
+                <li><a href="/cart" className={styles.dropdownLink}>Cart Items</a></li>
+                <li><a href="/feedbacks" className={styles.dropdownLink}>Feedbacks</a></li>
+                <li><a href="/complaints" className={styles.dropdownLink}>Complaints</a></li>
               </ul>
             )}
           </li>

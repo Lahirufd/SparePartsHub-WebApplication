@@ -8,10 +8,11 @@ import {
 import HomePage from './Pages/HomePage/HomePage';
 import LoginPage from './Pages/LoginPage/LoginPage';
 import SignupPage from './Pages/SignupPage/SignupPage';
-import SHDashboard from './Pages/SHDashboard/SHDashboard';
-import TDashboard from './Pages/TDashboard/TDashboard';
-import MDashboard from './Pages/MDashboard/MDashboard';
-import DDashboard from './Pages/DDashboard/DDashboard';
+import SHDashboard from './Pages/Dashboards/SHDashboard/SHDashboard';
+import TDashboard from './Pages/Dashboards/TDashboard/TDashboard';
+import MDashboard from './Pages/Dashboards/MDashboard/MDashboard';
+import DDashboard from './Pages/Dashboards/DDashboard/DDashboard';
+import UploadItemsPage from './Pages/UploadItemsPage/UploadItemsPage';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path="/tdashboard" element={<TDashboard />} />
         <Route path="/mdashboard" element={<MDashboard />} />
         <Route path="/ddashboard" element={<DDashboard />} />
+        <Route path="/items" element={<UploadItemsPage />} />
       </Routes>
     </Router>
   );
