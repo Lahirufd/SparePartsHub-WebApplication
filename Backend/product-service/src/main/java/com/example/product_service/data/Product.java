@@ -23,9 +23,8 @@ public class Product {
     @Column(name = "price")
     private double price;
 
-    @Lob
-    @Column(name = "picture")
-    private byte[] picture;
+    @Column(name = "image_path")
+    private String imagePath;
 
     @Column(name = "created_at", updatable = false)
     private LocalDateTime createdAt;
@@ -39,11 +38,11 @@ public class Product {
 
     public Product() {}
 
-    public Product(String name, String description, double price, byte[] picture, Category category, Stock stock) {
+    public Product(String name, String description, double price, String imagePath, Category category, Stock stock) {
         this.name = name;
         this.description = description;
         this.price = price;
-        this.picture = picture;
+        this.imagePath = imagePath;
         this.category = category;
         this.stock = stock;
     }
@@ -86,12 +85,12 @@ public class Product {
         this.price = price;
     }
 
-    public byte[] getPicture() {
-        return picture;
+    public String getImagePath() {
+        return imagePath;
     }
 
-    public void setPicture(byte[] picture) {
-        this.picture = picture;
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
     }
 
     public LocalDateTime getCreatedAt() {

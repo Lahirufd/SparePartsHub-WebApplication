@@ -13,13 +13,12 @@ public class WarrantyClaim {
     @Column(name = "id")
     private int id;
 
-    @Lob
-    @Column(name = "picture")
-    private byte[] picture;
-
     @ManyToOne
     @JoinColumn(name = "product_id")
     private Product product;
+
+    @Column(name = "image_path")
+    private String imagePath;
 
     @Lob
     @Column(name = "claim_reason")
@@ -39,9 +38,9 @@ public class WarrantyClaim {
 
     public WarrantyClaim() {}
 
-    public WarrantyClaim(Product product, byte[] picture, String claimReason, int userId, int orderId, String status) {
+    public WarrantyClaim(Product product, String imagePath, String claimReason, int userId, int orderId, String status) {
         this.product = product;
-        this.picture = picture;
+        this.imagePath = imagePath;
         this.claimReason = claimReason;
         this.userId = userId;
         this.orderId = orderId;
@@ -61,20 +60,20 @@ public class WarrantyClaim {
         this.id = id;
     }
 
-    public byte[] getPicture() {
-        return picture;
-    }
-
-    public void setPicture(byte[] picture) {
-        this.picture = picture;
-    }
-
     public Product getProduct() {
         return product;
     }
 
     public void setProduct(Product product) {
         this.product = product;
+    }
+
+    public String getImagePath() {
+        return imagePath;
+    }
+
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
     }
 
     public String getClaimReason() {
