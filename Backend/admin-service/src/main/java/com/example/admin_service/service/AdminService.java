@@ -1,7 +1,7 @@
 package com.example.admin_service.service;
 
 import com.example.admin_service.data.Admin;
-import com.example.admin_service.data.AdminRepository;
+import com.example.admin_service.repository.AdminRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
