@@ -60,10 +60,22 @@ const HomePage = () => {
                 <h3>Claim Warranty</h3>
               </div>
             </a>
-            <a href="/repairitems">
+            <a href="/cart">
               <div className={styles.serviceCard}>
-                <img src="repair-spare-parts.jpg" alt="Repair your Spare Parts" />
-                <h3>Repair your Spare Parts</h3>
+                <img src="cart.jpg" alt="Cart Items" />
+                <h3>Cart Items</h3>
+              </div>
+            </a>
+            <a href="/feedbacks">
+              <div className={styles.serviceCard}>
+                <img src="feedbacks.jpg" alt="Feedbacks" />
+                <h3>Feedbacks</h3>
+              </div>
+            </a>
+            <a href="/complaints">
+              <div className={styles.serviceCard}>
+                <img src="complaints.jpg" alt="Complaints" />
+                <h3>Complaints</h3>
               </div>
             </a>
           </div>
