@@ -8,10 +8,16 @@ const AdminDashboard = () => {
         <div className={styles.container}>
             <h1 className={styles.header}>Stock Handler Dashboard</h1>
             <div className={styles.cardsContainer}>
-              <a href="items">
+              <a href="upload-items">
                 <div className={styles.card}>
-                    <img src="upload-edit-items.jpg" alt="Upload and Edit Items" className={styles.cardImage} />
-                    <h2>Upload, Edit Items</h2>
+                    <img src="upload-items.jpg" alt="Upload Items" className={styles.cardImage} />
+                    <h2>Upload Items</h2>
+                </div>
+              </a>
+              <a href="edit-items">
+                <div className={styles.card}>
+                    <img src="edit-items.jpg" alt="Edit Items" className={styles.cardImage} />
+                    <h2>Edit Items and Stock</h2>
                 </div>
               </a>
               <a href="view-items">

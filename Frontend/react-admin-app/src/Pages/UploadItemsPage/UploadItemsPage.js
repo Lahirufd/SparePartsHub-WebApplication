@@ -2,138 +2,129 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import styles from './UploadItemsPage.module.css';
 
-const UploadSellingItem = () => {
-    const [itemName, setItemName] = useState('');
-    const [description, setDescription] = useState('');
-    const [selectedFile, setSelectedFile] = useState(null);
-    const [itemId, setItemId] = useState('');
-    const [message, setMessage] = useState('');
-    const [isEditMode, setIsEditMode] = useState(false);
+const UploadProductPage = () => {
+  const [itemName, setItemName] = useState('');
+  const [description, setDescription] = useState('');
+  const [price, setPrice] = useState('');
+  const [categoryId, setCategoryId] = useState('');
+  const [categories, setCategories] = useState([]);
+  const [selectedFile, setSelectedFile] = useState(null);
+  const [stockQuantity, setStockQuantity] = useState('');
 
-    useEffect(() => {
-        if (isEditMode && itemId) {
-            axios.get(`http://localhost:8081/is-api/items/${itemId}`)
-                .then(response => {
-                    const item = response.data;
-                    setItemName(item.name);
-                    setDescription(item.description);
-                });
-        }
-    }, [itemId, isEditMode]);
+  useEffect(() => {
+  axios.get('http://localhost:8082/ps-api/categories')
+    .then((response) => {
+      const data = response.data;
+      const categoriesArray = Array.isArray(data) ? data : [data];
+      setCategories(categoriesArray);
+    })
+    .catch((error) => console.error('Error fetching categories:', error));
+}, []);
 
-    const onFileChange = (event) => {
-        setSelectedFile(event.target.files[0]);
-    };
 
-    const onItemNameChange = (event) => {
-        setItemName(event.target.value);
-    };
+  const resetForm = () => {
+    setItemName('');
+    setDescription('');
+    setPrice('');
+    setCategoryId('');
+    setStockQuantity('');
+    setSelectedFile(null);
+  };
 
-    const onDescriptionChange = (event) => {
-        setDescription(event.target.value);
-    };
+  const onFormSubmit = async (e) => {
+    e.preventDefault();
 
-    const onIdChange = (event) => {
-        setItemId(event.target.value);
-    };
+    const formData = new FormData();
+    formData.append('name', itemName);
+    formData.append('description', description);
+    formData.append('price', price);
+    formData.append('image', selectedFile);
+    formData.append('categoryId', parseInt(categoryId));
+    formData.append('stockQuantity', parseInt(stockQuantity));
 
-    const onFormSubmit = async (e) => {
-        e.preventDefault();
-        setMessage('Processing...');
+    try {
+      await axios.post('http://localhost:8082/ps-api/products', formData);
+      alert('Product uploaded successfully');
+      resetForm();
+    } catch (error) {
+      console.error('Error uploading product:', error);
+      alert('An error occurred. Please try again: ' + error.message);
+    }
+  };
 
-        const formData = new FormData();
-        formData.append('name', itemName);
-        formData.append('description', description);
-        if (selectedFile) {
-            formData.append('picture', selectedFile);
-        }
+  return (
+    <div className={styles.container}>
+      <h1 className={styles.title}>Upload New Product</h1>
 
-        let response;
-        if (isEditMode) {
-            response = await axios.put(`http://localhost:8081/is-api/items/${itemId}`, formData, {
-                headers: {
-                    'Content-Type': 'multipart/form-data'
-                }
-            });
-        } else {
-            response = await axios.post('http://localhost:8081/is-api/items', formData, {
-                headers: {
-                    'Content-Type': 'multipart/form-data'
-                }
-            });
-        }
+      <form className={styles.form} onSubmit={onFormSubmit}>
+        <label className={styles.label}>Product Name:</label>
+        <input
+          type="text"
+          value={itemName}
+          onChange={(e) => setItemName(e.target.value)}
+          className={styles.input}
+          required
+        />
 
-        console.log('Response:', response);
-        setMessage(isEditMode ? 'Item updated successfully' : 'Item uploaded successfully');
-        setItemName('');
-        setDescription('');
-        setSelectedFile(null);
-        setItemId('');
-        setIsEditMode(false);
-    };
+        <label className={styles.label}>Description:</label>
+        <textarea
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+          className={styles.textarea}
+          required
+        />
 
-    return (
-        <div className={styles.wrapper}>
-        <div className={styles.container}>
-        <h2 className={styles.header}>{isEditMode ? 'Edit Selling Item' : 'Upload Selling Item'}</h2>
-        {message && <p className={styles.message}>{message}</p>}
-        <form className={styles.form} onSubmit={onFormSubmit}>
-          {isEditMode && (
-            <div>
-              <label className={styles.label} htmlFor="itemId">Item ID:</label>
-              <input
-                id="itemId"
-                type="text"
-                value={itemId}
-                onChange={onIdChange}
-                className={styles.input}
-                placeholder="Enter ID to edit"
-              />
-            </div>
-          )}
-          <div>
-            <label className={styles.label} htmlFor="itemName">Item Name:</label>
-            <input
-              id="itemName"
-              type="text"
-              value={itemName}
-              onChange={onItemNameChange}
-              className={styles.input}
-              required
-            />
-          </div>
-          <div>
-            <label className={styles.label} htmlFor="description">Description:</label>
-            <textarea
-              id="description"
-              value={description}
-              onChange={onDescriptionChange}
-              className={styles.textarea}
-              required
-            />
-          </div>
-          <div>
-            <label className={styles.label} htmlFor="picture">Image:</label>
-            <input
-              id="picture"
-              type="file"
-              onChange={onFileChange}
-              className={styles.fileInput}
-            />
-          </div>
-          <button type="submit1" className={styles.button}>{isEditMode ? 'Update Item' : 'Upload Item'}</button>
-        </form>
-        <div className={styles.horizontalButtonsContainer}>
-          <button onClick={() => setIsEditMode(!isEditMode)} className={styles.switchModeButton}>
-            {isEditMode ? 'Switch to Upload Mode' : 'Switch to Edit Mode'}
+        <label className={styles.label}>Price:</label>
+        <input
+          type="number"
+          value={price}
+          onChange={(e) => setPrice(e.target.value)}
+          className={styles.input}
+          required
+        />
+
+        <label className={styles.label}>Category:</label>
+        <select
+          value={categoryId}
+          onChange={(e) => setCategoryId(e.target.value)}
+          className={styles.input}
+          required
+        >
+          <option value="">Select a category</option>
+          {categories.map(cat => (
+            <option key={cat.id} value={cat.id}>{cat.name}</option>
+          ))}
+        </select>
+
+        <label className={styles.label}>Initial Stock Quantity:</label>
+        <input
+          type="number"
+          value={stockQuantity}
+          onChange={(e) => setStockQuantity(e.target.value)}
+          className={styles.input}
+          required
+        />
+
+        <label className={styles.label}>Product Image:</label>
+        <input
+          type="file"
+          onChange={(e) => setSelectedFile(e.target.files[0])}
+          className={styles.fileInput}
+          required
+        />
+
+        <div className={styles.buttonRow}>
+          <button type="submit" className={styles.button}>
+            Upload Product
           </button>
-          <a href="dashboard">
-            <button className={styles.backButton}>Back</button>
+
+          <a href="/shdashboard">
+            <button type="button" className={styles.backButton}>Back</button>
           </a>
         </div>
-      </div>
-      </div>    
-    );
+      </form>
+    </div>
+  );
 };
 
-export default UploadSellingItem;
+export default UploadProductPage;

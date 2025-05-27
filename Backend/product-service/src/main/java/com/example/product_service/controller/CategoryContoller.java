@@ -1,10 +1,11 @@
 package com.example.product_service.controller;
 
 
-import com.example.product_service.data.Category;
+import com.example.product_service.dto.CategoryDTO;
 import com.example.product_service.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,23 +19,24 @@ public class CategoryContoller {
     CategoryService categoryService;
 
     @PostMapping()
-    public Category createCategory(@RequestBody Category category) {
-        return categoryService.createCategory(category);
+    public CategoryDTO createCategory(@RequestBody CategoryDTO categoryDTO) {
+        return categoryService.createCategory(categoryDTO);
     }
 
     @GetMapping()
-    public List<Category> getAllCategories() {
+    public List<CategoryDTO> getAllCategories() {
         return categoryService.getAllCategories();
     }
 
-    @DeleteMapping(path = "/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteCategoryById(@PathVariable int id) {
-        boolean isDelete = categoryService.deleteCategoryById(id);
+        boolean isDeleted = categoryService.deleteCategoryById(id);
 
-        if (isDelete) {
-            return ResponseEntity.ok("User account deleted successfully.");
+        if (isDeleted) {
+            return ResponseEntity.ok("Category deleted successfully.");
         } else {
-            return ResponseEntity.status(401).body("Invalid username or password");
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Category not found.");
         }
     }
+
 }

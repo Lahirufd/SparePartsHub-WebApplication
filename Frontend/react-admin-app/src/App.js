@@ -13,6 +13,7 @@ import TDashboard from './Pages/Dashboards/TDashboard/TDashboard';
 import MDashboard from './Pages/Dashboards/MDashboard/MDashboard';
 import DDashboard from './Pages/Dashboards/DDashboard/DDashboard';
 import UploadItemsPage from './Pages/UploadItemsPage/UploadItemsPage';
+import EditProductPage from './Pages/EditProductsPage/EditProductsPage';
 
 function App() {
   return (
@@ -25,7 +26,8 @@ function App() {
         <Route path="/tdashboard" element={<TDashboard />} />
         <Route path="/mdashboard" element={<MDashboard />} />
         <Route path="/ddashboard" element={<DDashboard />} />
-        <Route path="/items" element={<UploadItemsPage />} />
+        <Route path="/upload-items" element={<UploadItemsPage />} />
+        <Route path="/edit-items" element={<EditProductPage />} />
       </Routes>
     </Router>
   );
