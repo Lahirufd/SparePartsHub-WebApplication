@@ -10,6 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/feedback")
+@CrossOrigin(origins = {"http://localhost:3000", "http://localhost:4000"})
 public class FeedbackController {
 
     @Autowired

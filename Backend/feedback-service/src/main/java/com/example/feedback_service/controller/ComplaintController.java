@@ -10,6 +10,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/complaints")
+@CrossOrigin(origins = {"http://localhost:3000", "http://localhost:4000"})
 public class ComplaintController {
 
     @Autowired
