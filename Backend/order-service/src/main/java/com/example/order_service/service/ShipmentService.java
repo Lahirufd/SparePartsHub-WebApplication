@@ -29,4 +29,9 @@ public class ShipmentService {
     public void deleteShipment(int id) {
         shipmentRepository.deleteById(id);
     }
+
+    public Shipment getShipmentByOrderId(int orderId) {
+        return shipmentRepository.findByOrderId(orderId);
+    }
+
 }

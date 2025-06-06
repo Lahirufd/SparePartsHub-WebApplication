@@ -16,6 +16,10 @@ public class Shipment {
     @JoinColumn(name = "order_id", referencedColumnName = "id")
     private Order order;
 
+    @Lob
+    @Column(name = "address")
+    private String address;
+
     @Column(name = "tracking_number")
     private String trackingNumber;
 
@@ -72,5 +76,13 @@ public class Shipment {
 
     public void setEstimatedDelivery(LocalDateTime estimatedDelivery) {
         this.estimatedDelivery = estimatedDelivery;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 }

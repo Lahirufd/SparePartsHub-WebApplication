@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/cart")
+@RequestMapping("/cart")
 public class CartController {
 
     @Autowired
@@ -33,4 +33,10 @@ public class CartController {
     public void deleteCart(@PathVariable int id) {
         cartService.deleteCart(id);
     }
+
+    @GetMapping("/user/{userId}")
+    public List<Cart> getCartByUserId(@PathVariable int userId) {
+        return cartService.getCartByUserId(userId);
+    }
+
 }
