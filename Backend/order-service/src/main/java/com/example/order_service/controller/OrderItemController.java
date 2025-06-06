@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/order-items")
+@RequestMapping("/order-items")
 public class OrderItemController {
 
     @Autowired
@@ -33,5 +33,11 @@ public class OrderItemController {
     public void deleteOrderItem(@PathVariable int id) {
         orderItemService.deleteOrderItem(id);
     }
+
+    @GetMapping("/order/{orderId}")
+    public List<OrderItem> getItemsByOrderId(@PathVariable int orderId) {
+        return orderItemService.getItemsByOrderId(orderId);
+    }
+
 }
 

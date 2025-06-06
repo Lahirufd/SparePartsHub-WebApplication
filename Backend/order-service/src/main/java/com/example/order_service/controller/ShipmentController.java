@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/shipments")
+@RequestMapping("/shipments")
 public class ShipmentController {
 
     @Autowired
@@ -33,4 +33,10 @@ public class ShipmentController {
     public void deleteShipment(@PathVariable int id) {
         shipmentService.deleteShipment(id);
     }
+
+    @GetMapping("/order/{orderId}")
+    public Shipment getShipmentByOrderId(@PathVariable int orderId) {
+        return shipmentService.getShipmentByOrderId(orderId);
+    }
+
 }
