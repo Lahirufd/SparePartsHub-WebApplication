@@ -26,12 +26,12 @@ public class WarrantyClaimController {
         return ResponseEntity.ok(service.getAll());
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<WarrantyClaimDTO> getClaimById(@PathVariable Long id) {
-        return service.getById(id)
-                .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
-    }
+//    @GetMapping("/{id}")
+//    public ResponseEntity<WarrantyClaimDTO> getClaimById(@PathVariable Long id) {
+//        return service.getById(id)
+//                .map(ResponseEntity::ok)
+//                .orElse(ResponseEntity.notFound().build());
+//    }
 
     @PutMapping("/{id}")
     public ResponseEntity<WarrantyClaimDTO> updateClaim(@PathVariable Long id, @RequestBody WarrantyClaimDTO dto) {

@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import styles from './EditProductsPage.module.css';
 
 const EditItemsPage = () => {
-  const [products, setProducts] = useState([]);
+  const [allProducts, setAllProducts] = useState([]); // Store all products
+  const [filteredProducts, setFilteredProducts] = useState([]); // Store filtered products
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
+  const navigate = useNavigate();
 
   const [editForm, setEditForm] = useState({
     name: '',
@@ -29,12 +32,12 @@ const EditItemsPage = () => {
       setLoading(true);
       const response = await axios.get(`${BASE_URL}/products`);
       const productsArray = Array.isArray(response.data) ? response.data : [response.data];
-      // Ensure stock quantity is properly extracted
       const processedProducts = productsArray.map(product => ({
         ...product,
         stockQuantity: product.stockQuantity ?? product.stock?.quantity ?? product.stock?.stockQuantity ?? 'N/A'
       }));
-      setProducts(processedProducts);
+      setAllProducts(processedProducts);
+      setFilteredProducts(processedProducts); // Initialize filtered products with all products
     } catch (error) {
       console.error('Error fetching products:', error);
       alert('Failed to fetch products');
@@ -52,32 +55,27 @@ const EditItemsPage = () => {
     }
   };
 
-  const searchProductByName = async (name) => {
-    if (!name.trim()) {
-      fetchProducts();
+  const handleSearch = (e) => {
+    e.preventDefault();
+    if (!searchTerm.trim()) {
+      setFilteredProducts(allProducts); // Reset to all products if search term is empty
       return;
     }
 
-    try {
-      setLoading(true);
-      const response = await axios.get(`${BASE_URL}/products`, {
-        params: { name }
-      });
-      setProducts(Array.isArray(response.data) ? response.data : [response.data]);
-    } catch (error) {
-      console.error('Error searching products:', error);
-      setProducts([]);
-    } finally {
-      setLoading(false);
-    }
+    const searchTermLower = searchTerm.toLowerCase();
+    const filtered = allProducts.filter(product => 
+      product.name.toLowerCase().includes(searchTermLower) ||
+      (product.description && product.description.toLowerCase().includes(searchTermLower)) ||
+      (product.category?.name && product.category.name.toLowerCase().includes(searchTermLower))
+    );
+    setFilteredProducts(filtered);
   };
 
-  const handleSearch = (e) => {
-    e.preventDefault();
-    searchProductByName(searchTerm);
+  const clearSearch = () => {
+    setSearchTerm('');
+    setFilteredProducts(allProducts); // Reset to all products
   };
 
-  // FIXED: Updated selectProduct function to properly handle stock quantity
   const selectProduct = (product) => {
     setSelectedProduct(product);
     setEditForm({
@@ -85,7 +83,6 @@ const EditItemsPage = () => {
       description: product.description || '',
       price: product.price || '',
       categoryId: product.category?.id || '',
-      // Fixed: Use the processed stockQuantity directly
       stockQuantity: product.stockQuantity || ''
     });
   };
@@ -116,7 +113,14 @@ const EditItemsPage = () => {
 
       await axios.put(`${BASE_URL}/products/${selectedProduct.id}`, updateData);
       alert('Product updated successfully');
-      fetchProducts();
+      
+      // Refresh the products list
+      const updatedProducts = allProducts.map(p => 
+        p.id === selectedProduct.id ? { ...p, ...updateData } : p
+      );
+      setAllProducts(updatedProducts);
+      setFilteredProducts(updatedProducts);
+      
       setSelectedProduct(null);
     } catch (error) {
       console.error('Error updating product:', error);
@@ -124,25 +128,34 @@ const EditItemsPage = () => {
     }
   };
 
-  const getCategoryName = (category) => category?.name || 'Unknown';
-
-  // FIXED: Improved image URL handling
-  const getImageUrl = (product) => {
-    if (product.imageUrl) {
-      // If imageUrl is a full URL (starts with http/https), use it directly
-      if (product.imageUrl.startsWith('http')) {
-        return product.imageUrl;
+  const deleteProduct = async (id) => {
+    if (!window.confirm('Are you sure you want to delete this product?')) return;
+    try {
+      await axios.delete(`${BASE_URL}/products/${id}`);
+      alert('Product deleted successfully');
+      
+      // Update the products list
+      const updatedProducts = allProducts.filter(p => p.id !== id);
+      setAllProducts(updatedProducts);
+      setFilteredProducts(updatedProducts);
+      
+      // Clear selection if the deleted product was selected
+      if (selectedProduct?.id === id) {
+        setSelectedProduct(null);
       }
-      // If it's a relative path, construct the full URL
-      return `${BASE_URL}${product.imageUrl}`;
+    } catch (error) {
+      console.error('Error deleting product:', error);
+      alert('Failed to delete product');
     }
-    // Fallback to a default placeholder
-    return 'https://via.placeholder.com/150x150?text=No+Image';
   };
 
+  const getCategoryName = (category) => category?.name || 'Unknown';
+
+  const BASE_IMAGE_URL = "http://localhost:8082/ps-api/images/";
+
   return (
-    <div className={styles.pageWrapper}>
-      <div className={styles.container}>
+    <div className={styles.container}>
+      <div className={styles.contentWrapper}>
         <h1 className={styles.title}>Edit Products</h1>
 
         <div className={styles.searchSection}>
@@ -154,79 +167,77 @@ const EditItemsPage = () => {
               onChange={(e) => setSearchTerm(e.target.value)}
               className={styles.searchInput}
             />
-            <button type="submit" className={styles.searchButton}>Search</button>
-            <button
-              type="button"
-              onClick={() => { setSearchTerm(''); fetchProducts(); }}
-              className={styles.clearButton}
-            >
-              Clear
-            </button>
+            <div style={{ display: 'flex', gap: '1rem' }}>
+              <button type="submit" className={`${styles.button} ${styles.searchButton}`}>
+                Search
+              </button>
+              <button
+                type="button"
+                onClick={clearSearch}
+                className={`${styles.button} ${styles.clearButton}`}
+              >
+                Clear
+              </button>
+            </div>
           </form>
         </div>
 
         <div className={styles.mainContent}>
           <div className={styles.productsSection}>
-            <h2>Products List</h2>
+            <h2 className={styles.sectionTitle}>Products List</h2>
             {loading ? (
-              <p>Loading...</p>
+              <p className={styles.loading}>Loading...</p>
             ) : (
-              <div className={styles.productsList}>
-        {products.length === 0 ? (
-          <p className={styles.noProducts}>No products found</p>
-        ) : (
-          products.map(product => (
-            <div
-              key={product.id}
-              className={`${styles.productCard} ${selectedProduct?.id === product.id ? styles.selected : ''}`}
-              onClick={() => selectProduct(product)}
-            >
-              <div className={styles.imageContainer}>
-                <img
-                  src={getImageUrl(product)}
-                  alt={product.name}
-                  className={styles.productImage}
-                  onError={(e) => {
-                    e.target.onerror = null;
-                    // Use a reliable placeholder service as fallback
-                    e.target.src = 'https://via.placeholder.com/150x150?text=No+Image';
-                  }}
-                />
-              </div>
-              <div className={styles.productInfo}>
-                <h3>{product.name}</h3>
-                <p className={styles.price}>Price: ${parseFloat(product.price || 0).toFixed(2)}</p>
-                <p className={styles.stock}>
-                  Stock: {product.stockQuantity ?? product.stock?.quantity ?? product.stock?.stockQuantity ?? 'N/A'}
-                </p>
-                <p className={styles.category}>Category: {getCategoryName(product.category)}</p>
-              </div>
-            </div>
-          ))
-        )}
+              <div className={styles.productsContainer}>
+                {filteredProducts.length === 0 ? (
+                  <p className={styles.emptyState}>No products found</p>
+                ) : (
+                  filteredProducts.map(product => (
+                    <div
+                      key={product.id}
+                      className={`${styles.productCard} ${selectedProduct?.id === product.id ? styles.selected : ''}`}
+                    >
+                      <div className={styles.productImage}>
+                        <img src={`${BASE_IMAGE_URL}${product.imagePath}`} alt="product" />
+                      </div>
+                      <div className={styles.productDetails} onClick={() => selectProduct(product)}>
+                        <h3 className={styles.productName}>{product.name}</h3>
+                        <p className={styles.productPrice}>Price: Rs.{parseFloat(product.price || 0).toFixed(2)}</p>
+                        <p className={styles.productStock}>Stock: {product.stockQuantity}</p>
+                        <p className={styles.productCategory}>Category: {getCategoryName(product.category)}</p>
+                      </div>
+                      <button
+                        className={styles.deleteButton}
+                        onClick={() => deleteProduct(product.id)}
+                      >
+                        Delete
+                      </button>
+                    </div>
+                  ))
+                )}
               </div>
             )}
           </div>
 
           {selectedProduct && (
             <div className={styles.editSection}>
-              <h2>Edit Product</h2>
-              <form onSubmit={updateProduct} className={styles.editForm}>
+              <h2 className={styles.editTitle}>Edit Product</h2>
+              <form onSubmit={updateProduct} className={styles.form}>
                 <label>Product Name:</label>
                 <input
                   type="text"
                   value={editForm.name}
                   onChange={(e) => handleEditFormChange('name', e.target.value)}
                   required
+                  className={styles.input}
                 />
-
                 <label>Description:</label>
                 <textarea
                   value={editForm.description}
                   onChange={(e) => handleEditFormChange('description', e.target.value)}
                   required
+                  className={styles.input}
                 />
-
                 <label>Price:</label>
                 <input
                   type="number"
@@ -234,34 +245,36 @@ const EditItemsPage = () => {
                   value={editForm.price}
                   onChange={(e) => handleEditFormChange('price', e.target.value)}
                   required
+                  className={styles.input}
                 />
-
                 <label>Category:</label>
                 <select
                   value={editForm.categoryId}
                   onChange={(e) => handleEditFormChange('categoryId', e.target.value)}
                   required
+                  className={styles.input}
                 >
                   <option value="">Select Category</option>
                   {categories.map(cat => (
                     <option key={cat.id} value={cat.id}>{cat.name}</option>
                   ))}
                 </select>
-
                 <label>Stock Quantity:</label>
                 <input
                   type="number"
                   value={editForm.stockQuantity}
                   onChange={(e) => handleEditFormChange('stockQuantity', e.target.value)}
                   required
+                  className={styles.input}
                 />
-
-                <div className={styles.buttonGroup}>
-                  <button type="submit" className={styles.updateButton}>Update Product</button>
+                <div className={styles.buttonRow}>
+                  <button type="submit" className={`${styles.button} ${styles.updateButton}`}>
+                    Update Product
+                  </button>
                   <button
                     type="button"
                     onClick={() => setSelectedProduct(null)}
-                    className={styles.cancelButton}
+                    className={`${styles.button} ${styles.cancelButton}`}
                   >
                     Cancel
                   </button>
@@ -269,6 +282,12 @@ const EditItemsPage = () => {
               </form>
             </div>
           )}
+        </div>
+
+        <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: '2rem' }}>
+          <button onClick={() => navigate(-1)} className={styles.backButton}>
+            Back
+          </button>
         </div>
       </div>
     </div>

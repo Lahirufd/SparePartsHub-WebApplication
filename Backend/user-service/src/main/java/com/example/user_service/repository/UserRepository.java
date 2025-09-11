@@ -6,6 +6,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface UserRepository extends JpaRepository<User, Integer> {
     @Query("select u from User u where u.username=?1")
@@ -16,4 +18,6 @@ public interface UserRepository extends JpaRepository<User, Integer> {
 
     @Query("select u.role from User u where u.username=:username")
     String findRoleByUsername(@Param("username") String username);
+
+    List<User> findByRole(String role);
 }

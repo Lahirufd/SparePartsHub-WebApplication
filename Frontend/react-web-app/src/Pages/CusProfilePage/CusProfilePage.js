@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 import Header from '../../Components/Cusheader/Cusheader';
 import Footer from '../../Components/Footer/Footer';
@@ -56,13 +56,13 @@ const ProfilePage = () => {
           <div className={styles.profileContent}>
             <div className={styles.cardContainer}>
               <div className={styles.card}>
-                <a href="orders">
+                <Link to="/purchased-items">
                   <img 
                     src="purchased.png" 
                     alt="Purchased Items" 
                     className={styles.cardImage} 
                   />
-                </a>
+                </Link>
                 <h2>Purchased Items</h2>
                 <p>View and manage all the items you have purchased from our store.</p>
               </div>
@@ -78,15 +78,41 @@ const ProfilePage = () => {
                 <p>Check the warranty status of your items and request service if needed.</p>
               </div>
               <div className={styles.card}>
-                <a href="repair-details">
+                <a href="cus-feedback-complaints">
                   <img 
-                    src="repair.png" 
-                    alt="Repair Items" 
+                    src="cusfeed.png"
+                    alt="Cus Feedback Complaints" 
                     className={styles.cardImage} 
                   />
                 </a>
-                <h2>Repair Items</h2>
-                <p>Manage your repair requests and track the status of your items undergoing repairs.</p>
+                <h2>Your Feedbacks and Complaints</h2>
+                <p>View your submitted feedback and complaints, and track their resolution status.</p>
+              </div>
+
+              {/* New card: Account Settings */}
+              <div className={styles.card}>
+                <a href="account-settings">
+                  <img 
+                    src="settings.png"
+                    alt="Account Settings" 
+                    className={styles.cardImage} 
+                  />
+                </a>
+                <h2>Account Settings</h2>
+                <p>Update your personal information, change your password, and manage your preferences.</p>
+              </div>
+
+              {/* New card: Notifications */}
+              <div className={styles.card}>
+                <a href="notifications">
+                  <img 
+                    src="notifications.png"
+                    alt="Notifications" 
+                    className={styles.cardImage} 
+                  />
+                </a>
+                <h2>Notifications</h2>
+                <p>Check your latest notifications and stay updated on your orders and requests.</p>
               </div>
             </div>
           </div>

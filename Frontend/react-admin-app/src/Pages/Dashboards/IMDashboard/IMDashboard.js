@@ -1,12 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import styles from './SHDashboard.module.css';
+import styles from '../Dashboards.module.css';
 
 const AdminDashboard = () => {
     return (
       <div className={styles.wrapper}>
         <div className={styles.container}>
-            <h1 className={styles.header}>Stock Handler Dashboard</h1>
+            <h1 className={styles.header}>Inventory Manager Dashboard</h1>
             <div className={styles.cardsContainer}>
               <a href="upload-items">
                 <div className={styles.card}>
@@ -24,6 +24,18 @@ const AdminDashboard = () => {
                 <div className={styles.card}>
                     <img src="items.jpg" alt="Items" className={styles.cardImage} />
                     <h2>Items</h2>
+                </div>
+              </a>
+              <a href="supply-items">
+                <div className={styles.card}>
+                    <img src="supply-items.jpg" alt="Supply Items" className={styles.cardImage} />
+                    <h2>Supply Items</h2>
+                </div>
+              </a>
+              <a href="warranty-items">
+                <div className={styles.card}>
+                    <img src="warranty-items.jpg" alt="Warranty Items" className={styles.cardImage} />
+                    <h2>Warranty Items</h2>
                 </div>
               </a>
             </div>

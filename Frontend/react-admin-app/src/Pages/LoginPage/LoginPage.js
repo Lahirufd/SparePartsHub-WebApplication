@@ -28,12 +28,16 @@ const LoginPage = () => {
           // Redirect based on the user's role
           if (role === 'Director') {
             navigate('/ddashboard');
-          } else if (role === 'Manager') {
-            navigate('/mdashboard');
-          } else if (role === 'Technician') {
-            navigate('/tdashboard');
-          } else if (role === 'Stock Handler') {
-            navigate('/shdashboard');
+          } else if (role === 'General Manager') {
+            navigate('/gmdashboard');
+          } else if (role === 'Inventory Manager') {
+            navigate('/imdashboard');
+          } else if (role === 'Accountant') {
+            navigate('/adashboard');
+          } else if (role === 'Customer Support Officer') {
+            navigate('/csodashboard');
+          } else if (role === 'Delivery Staff') {
+            navigate('/dsdashboard');
           } else {
             setError('Invalid role detected.');
           }

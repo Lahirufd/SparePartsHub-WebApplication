@@ -1,8 +1,6 @@
 package com.example.product_service.controller;
 
 import com.example.product_service.dto.ProductDTO;
-import com.example.product_service.entity.Product;
-import com.example.product_service.entity.Stock;
 import com.example.product_service.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -47,19 +45,19 @@ public class ProductController {
         return productService.getAllProducts();
     }
 
-    @GetMapping(params = "name")
-    public ResponseEntity<List<ProductDTO>> findProductsByName(@RequestParam("name") String name) {
-        try {
-            if (name == null || name.trim().isEmpty()) {
-                return ResponseEntity.badRequest().body(null);
-            }
-
-            List<ProductDTO> products = productService.findProductsByName(name.trim());
-            return ResponseEntity.ok(products);
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
-        }
-    }
+//    @GetMapping(params = "name")
+//    public ResponseEntity<List<ProductDTO>> findProductsByName(@RequestParam("name") String name) {
+//        try {
+//            if (name == null || name.trim().isEmpty()) {
+//                return ResponseEntity.badRequest().body(null);
+//            }
+//
+//            List<ProductDTO> products = productService.findProductsByName(name.trim());
+//            return ResponseEntity.ok(products);
+//        } catch (Exception e) {
+//            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+//        }
+//    }
 
     @PutMapping("/{id}")
     public ResponseEntity<ProductDTO> updateProduct(
@@ -75,5 +73,18 @@ public class ProductController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
         }
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteProduct(@PathVariable("id") int productId) {
+        try {
+            productService.deleteProductById(productId);
+            return ResponseEntity.ok("Product deleted successfully.");
+        } catch (RuntimeException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("An error occurred while deleting the product.");
+        }
+    }
+
 
 }

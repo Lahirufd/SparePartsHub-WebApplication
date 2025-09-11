@@ -54,7 +54,7 @@ const HomePage = () => {
           <h2>Our Products</h2>
           <div className={styles.productContent}>
             <div className={styles.productTile}>
-              <a href="/products">
+              <a href="/items">
                 <div className={styles.serviceCard}>
                   <img src="products.jpg" alt="Our Products" className={styles.productImage} />
                 </div>
@@ -64,7 +64,7 @@ const HomePage = () => {
               <p className={styles.productDescription}>
                 Discover a comprehensive selection of high-quality spare parts for European and Japanese vehicles. Our range includes both used and brand new products, carefully selected to ensure reliability and durability. Explore our catalog to find parts tailored to your needs.
               </p>
-              <a href="/products" className={styles.clickHereButton}>
+              <a href="/items" className={styles.clickHereButton}>
                 Click Here
               </a>
             </div>

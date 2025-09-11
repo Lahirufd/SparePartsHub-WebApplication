@@ -66,9 +66,10 @@ const SignupPage = () => {
             <div className={styles.formGroup}>
               <label htmlFor="role">Sign Up As</label>
               <select id="role" name="role" value={formData.role} onChange={handleChange} className={styles.roleDropdown} required>
-                <option value="Stock Handler">Stock Handler</option>
-                <option value="Technician">Technician</option>
-                <option value="Manager">Manager</option>
+                <option value="Inventory Manager">Inventory Manager</option>
+                <option value="Accountant">Accountant</option>
+                <option value="Customer Support Officer">Customer Support Officer</option>
+                <option value="Delivery Staff">Delivery Staff</option>
               </select>
             </div>
             <button type="submit" className={styles.createAccountButton}>Create Account</button>

@@ -41,10 +41,10 @@ public class WarrantyClaimService {
                 .collect(Collectors.toList());
     }
 
-    public Optional<WarrantyClaimDTO> getById(Long id) {
-        return warrantyClaimRepository.findById(id.intValue())
-                .map(mapper::toDTO);
-    }
+//    public Optional<WarrantyClaimDTO> getById(Long id) {
+//        return warrantyClaimRepository.findById(id.intValue())
+//                .map(mapper::toDTO);
+//    }
 
     public WarrantyClaimDTO update(Long id, WarrantyClaimDTO dto) {
         WarrantyClaim existing = warrantyClaimRepository.findById(id.intValue())

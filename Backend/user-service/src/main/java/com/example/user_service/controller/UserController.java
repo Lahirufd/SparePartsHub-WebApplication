@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = {"http://localhost:3000", "http://localhost:4000"})
 public class UserController {
     @Autowired
     private UserService userService;
@@ -53,5 +53,15 @@ public class UserController {
     @GetMapping(path = "/users/role", params = "username")
     public String findRoleByUsername(@RequestParam String username) {
         return userService.findRoleByUsername(username);
+    }
+
+    @GetMapping("/customers")
+    public ResponseEntity<List<User>> getCustomers() {
+        return ResponseEntity.ok(userService.getCustomers());
+    }
+
+    @GetMapping("/suppliers")
+    public ResponseEntity<List<User>> getSuppliers() {
+        return ResponseEntity.ok(userService.getSuppliers());
     }
 }

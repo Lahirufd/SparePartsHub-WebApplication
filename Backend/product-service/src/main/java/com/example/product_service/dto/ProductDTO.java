@@ -1,7 +1,5 @@
 package com.example.product_service.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import java.time.LocalDateTime;
 
 public class ProductDTO {

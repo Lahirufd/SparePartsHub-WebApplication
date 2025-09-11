@@ -1,0 +1,312 @@
+/* Back Button Bottom Right */
+.backButton {
+  position: static;
+  margin-right: 0;
+  margin-bottom: 0;
+  background: #888;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.85rem 2.2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.13);
+  z-index: 100;
+  transition: background 0.2s, transform 0.2s;
+}
+
+/* Container for back button inside main content */
+.backButtonContainer {
+  width: 100%;
+  max-width: 1300px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  position: relative;
+  min-height: 60px;
+  margin-top: 2.5rem;
+}
+
+.backButton:hover {
+  background: #666;
+  transform: translateY(-2px) scale(1.04);
+}
+
+.mainContent {
+  min-height: 80vh;
+  background: #f7fafd;
+  padding: 2.5rem 0 2rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  font-size: 2.2rem;
+  color: #1b1b1b;
+  margin-bottom: 2rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.complaintsContainer {
+  width: 100%;
+  max-width: 1300px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  padding: 2rem 2.5rem;
+  margin-bottom: 2rem;
+}
+
+.complaintsListScrollable {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  overflow-x: auto;
+  padding-bottom: 1rem;
+  scrollbar-width: thin;
+}
+
+.complaintCard {
+  background: #fff5f5;
+  border-radius: 10px;
+  padding: 1.2rem 1.5rem;
+  box-shadow: 0 1px 4px rgba(220,38,127,0.07);
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  min-width: 350px;
+  max-width: 350px;
+  min-height: 260px;
+  box-sizing: border-box;
+  border-left: 4px solid #dc2626;
+}
+
+.complaintHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.08rem;
+  font-weight: 600;
+  color: #dc2626;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.complaintName {
+  color: #dc2626;
+  font-weight: 700;
+}
+
+.complaintDate {
+  color: #666;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.statusPending {
+  background: #fef3c7;
+  color: #d97706;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.statusResolved {
+  background: #d1fae5;
+  color: #047857;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.complaintDescription {
+  font-size: 1.01rem;
+  color: #555;
+  margin-bottom: 0.3rem;
+  font-style: italic;
+}
+
+.complaintSubject {
+  font-size: 1.08rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.complaintMessage {
+  font-size: 1.05rem;
+  color: #444;
+  line-height: 1.4;
+  background: #fafafa;
+  padding: 0.8rem;
+  border-radius: 6px;
+  border-left: 3px solid #dc2626;
+}
+
+.complaintResponse {
+  font-size: 1.02rem;
+  color: #047857;
+  background: #f0fdf4;
+  padding: 0.8rem;
+  border-radius: 6px;
+  border-left: 3px solid #047857;
+  margin-top: 0.5rem;
+}
+
+.emptyMsg {
+  text-align: center;
+  color: #888;
+  font-size: 1.3rem;
+  padding: 2rem 0;
+}
+
+.formSection {
+  width: 100%;
+  max-width: 1200px;
+  background: linear-gradient(145deg, #fef7f7, #fdf6f6);
+  border-radius: 16px;
+  padding: 2rem 2.5rem;
+  margin: 2rem auto;
+  box-shadow: 0 8px 24px rgba(220, 38, 38, 0.12);
+  position: relative;
+  overflow: hidden;
+  border-left: 6px solid #dc2626;
+}
+
+.formTitle {
+  font-size: 1.9rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1.8rem;
+  color: #333;
+  letter-spacing: 0.5px;
+}
+
+.complaintForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+/* Row 1 */
+.formRow {
+  display: flex;
+  flex: 1 1 100%;
+  gap: 1rem;
+}
+
+/* Row 2 */
+.formRowFull {
+  flex: 1 1 100%;
+  width: 100%;
+}
+
+.input {
+  flex: 1;
+  padding: 0.9rem 1.2rem;
+  border-radius: 10px;
+  border: 1.5px solid #ccc;
+  font-size: 1.05rem;
+  transition: all 0.3s ease;
+  background: #f9fbff;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #dc2626;
+  box-shadow: 0 0 8px rgba(220,38,38,0.3);
+  background: #fff;
+}
+
+textarea.input {
+  width: 100%;
+  resize: vertical;
+  width: calc(100% - 2.5rem);
+}
+
+/* Row 3 */
+.formActions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+/* Button */
+.submitBtn {
+  background: linear-gradient(135deg, #dc2626, #ef4444);
+  color: #fff;
+  border: none;
+  padding: 0.95rem 2.5rem;
+  border-radius: 12px;
+  font-size: 1.15rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 15px rgba(220, 38, 38, 0.25);
+}
+
+.submitBtn:hover {
+  background: linear-gradient(135deg, #b91c1c, #dc2626);
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 8px 20px rgba(220, 38, 38, 0.35);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .mainContent {
+    padding: 1.5rem 1rem;
+  }
+  
+  .title {
+    font-size: 1.8rem;
+  }
+  
+  .complaintsContainer,
+  .formSection {
+    padding: 1.5rem;
+    margin: 1rem;
+  }
+  
+  .complaintCard {
+    min-width: 280px;
+    max-width: 280px;
+  }
+  
+  .formRow {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .complaintHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .complaintsListScrollable {
+    gap: 1rem;
+  }
+  
+  .complaintCard {
+    min-width: 250px;
+    max-width: 250px;
+    min-height: 240px;
+  }
+  
+  .backButtonContainer {
+    padding: 0 1rem;
+  }
+}

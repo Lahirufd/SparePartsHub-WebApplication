@@ -46,19 +46,48 @@ const HomePage = () => {
           </p>
         </section>
 
-        {/* Sell Your Spare Parts Section */}
+
+        {/* Creative Sell Your Spare Parts Section */}
         <section className={styles.sellPartsSection}>
-          <a href="/sellingitems">
+          <div className={styles.sellPartsLeft}>
             <img src="sell-spare-parts.jpg" alt="Sell Spare Parts" className={styles.sellPartsImage} />
-          </a>
-          <div className={styles.sellPartsContent}>
-            <h2>Sell Your Spare Parts</h2>
+          </div>
+          <div className={styles.sellPartsRight}>
+            <h2>Turn Your Spare Parts Into Cash!</h2>
             <p>
-              Looking to sell your unused spare parts? Join our platform to list and sell your parts effortlessly. We provide an extensive marketplace for genuine, high-quality spare parts that will reach customers across the country. Join Thelee Group to make a difference by supporting sustainable automotive solutions.
+              Got unused or extra auto parts? List them on our marketplace and reach thousands of buyers instantly. Enjoy a simple upload process, secure transactions, and a supportive seller community. <b>Start earning today!</b>
             </p>
             <a href="/sellingitems">
-              <button className={styles.sellPartsButton}>Click Here for Upload</button>
+              <button className={styles.sellPartsButton}>Sell Now</button>
             </a>
+          </div>
+        </section>
+
+
+
+        {/* Modern Quick Actions Tiles Section in a container, aligned right, with paragraph */}
+        <section className={styles.quickActionsSection}>
+          <div className={styles.quickActionsContainer}>
+            <div className={styles.quickActionsText}>
+              <h2>Quick Actions</h2>
+              <p>
+                Have something to share or report? Use our quick actions to send your feedback or complaints directly to our team. Your input helps us improve our service and support you better!
+              </p>
+            </div>
+            <div className={styles.tilesRowRight}>
+              <a href="/feedbacks" className={styles.tileLink}>
+                <div className={styles.actionTile}>
+                  <img src="feedbacks.jpg" alt="Feedbacks" />
+                  <span>Feedbacks</span>
+                </div>
+              </a>
+              <a href="/complaints" className={styles.tileLink}>
+                <div className={styles.actionTile}>
+                  <img src="complaints.jpg" alt="Complaints" />
+                  <span>Complaints</span>
+                </div>
+              </a>
+            </div>
           </div>
         </section>
 

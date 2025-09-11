@@ -1,0 +1,242 @@
+/* Back Button Bottom Right */
+.backButton {
+  position: static;
+  margin-right: 0;
+  margin-bottom: 0;
+  background: #888;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.85rem 2.2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.13);
+  z-index: 100;
+  transition: background 0.2s, transform 0.2s;
+}
+/* Container for back button inside main content */
+.backButtonContainer {
+  width: 100%;
+  max-width: 1300px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  position: relative;
+  min-height: 60px;
+  margin-top: 2.5rem;
+}
+.backButton:hover {
+  background: #666;
+  transform: translateY(-2px) scale(1.04);
+}
+.feedbackDescription {
+  font-size: 1.01rem;
+  color: #555;
+  margin-bottom: 0.3rem;
+}
+.starRatingInput {
+  display: flex;
+  gap: 0.2rem;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+}
+.star {
+  color: #b0b0b0;
+  transition: color 0.2s;
+}
+.starActive {
+  color: #ff9800;
+  transition: color 0.2s;
+}
+.mainContent {
+  min-height: 80vh;
+  background: #f7fafd;
+  padding: 2.5rem 0 2rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  font-size: 2.2rem;
+  color: #1b1b1b;
+  margin-bottom: 2rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.feedbackContainer {
+  width: 100%;
+  max-width: 1300px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  padding: 2rem 2.5rem;
+  margin-bottom: 2rem;
+}
+
+.feedbackListScrollable {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  overflow-x: auto;
+  padding-bottom: 1rem;
+  scrollbar-width: thin;
+}
+.formRow {
+  display: flex;
+  gap: 1.2rem;
+  margin-bottom: 0.7rem;
+}
+
+.feedbackCard {
+  background: #eaf6ff;
+  border-radius: 10px;
+  padding: 1.2rem 1.5rem;
+  box-shadow: 0 1px 4px rgba(0,123,255,0.07);
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  min-width: 320px;
+  max-width: 320px;
+  min-height: 220px;
+  box-sizing: border-box;
+}
+
+.feedbackHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.08rem;
+  font-weight: 600;
+  color: #0077b6;
+}
+
+.feedbackRating {
+  color: #ff9800;
+  font-size: 1.2rem;
+}
+
+.feedbackComment {
+  font-size: 1.08rem;
+  color: #222;
+}
+
+.emptyMsg {
+  text-align: center;
+  color: #888;
+  font-size: 1.3rem;
+  padding: 2rem 0;
+}
+
+.formSection {
+  width: 100%;
+  max-width: 1200px;
+  background: linear-gradient(145deg, #fffbe7, #fdfcf6);
+  border-radius: 16px;
+  padding: 2rem 2.5rem;
+  margin: 2rem auto;
+  box-shadow: 0 8px 24px rgba(255, 215, 64, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+.formTitle {
+  font-size: 1.9rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1.8rem;
+  color: #333;
+  letter-spacing: 0.5px;
+}
+
+.feedbackForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+/* Row 1 */
+.formRow {
+  display: flex;
+  flex: 1 1 100%;
+  gap: 1rem;
+}
+
+/* Row 2 */
+.formRowFull {
+  flex: 1 1 100%;
+  width: 100%;
+}
+
+.input {
+  flex: 1;
+  padding: 0.9rem 1.2rem;
+  border-radius: 10px;
+  border: 1.5px solid #ccc;
+  font-size: 1.05rem;
+  transition: all 0.3s ease;
+  background: #f9fbff;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #0096c7;
+  box-shadow: 0 0 8px rgba(0,150,199,0.3);
+  background: #fff;
+}
+
+textarea.input {
+  width: 100%;
+  resize: vertical;
+  width: calc(100% - 2.5rem);
+}
+
+/* Row 3 */
+.formActions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+/* Stars */
+.star {
+  font-size: 2rem;
+  color: #ccc;
+  cursor: pointer;
+  transition: transform 0.2s, color 0.3s;
+}
+.star:hover {
+  transform: scale(1.2);
+  color: #ffb703;
+}
+.starActive {
+  color: #ffb703;
+  transform: scale(1.15);
+  text-shadow: 0 0 10px rgba(255,183,3,0.5);
+}
+
+/* Button */
+.submitBtnCreative {
+  background: linear-gradient(135deg, #0077b6, #00b4d8);
+  color: #fff;
+  border: none;
+  padding: 0.95rem 2.5rem;
+  border-radius: 12px;
+  font-size: 1.15rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 15px rgba(0, 119, 182, 0.25);
+}
+
+.submitBtnCreative:hover {
+  background: linear-gradient(135deg, #0096c7, #48cae4);
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 8px 20px rgba(0, 119, 182, 0.35);
+}

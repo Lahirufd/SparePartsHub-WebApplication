@@ -52,7 +52,7 @@ public class ProductService {
         product.setName(name);
         product.setDescription(description);
         product.setPrice(price);
-        product.setImagePath(filePath.toString());
+        product.setImagePath(fileName);
         product.setCategory(category);
 
         Stock stock = new Stock();
@@ -108,4 +108,10 @@ public class ProductService {
         return productMapper.toDTO(updatedProduct);
     }
 
+    public void deleteProductById(int productId) {
+        Product product = productRepository.findById(productId)
+                .orElseThrow(() -> new RuntimeException("Product not found with ID: " + productId));
+
+        productRepository.delete(product);
+    }
 }

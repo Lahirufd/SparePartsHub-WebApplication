@@ -41,7 +41,7 @@ const Contact = () => {
               </p>
             </div>
           </div>
-          <div className={styles.contactForm}>
+          {/* <div className={styles.contactForm}>
             <h2>Add Your Complains Here</h2>
             <form>
               <div className={styles.formGroup}>
@@ -58,7 +58,7 @@ const Contact = () => {
               </div>
               <button type="submit2">Send Complain</button>
             </form>
-          </div>
+          </div> */}
           <div className={styles.socialMedia}>
             <h2>Follow Us</h2>
             <div className={styles.socialIcons}>

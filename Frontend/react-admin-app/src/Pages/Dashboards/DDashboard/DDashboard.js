@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import styles from './DDashboard.module.css';
+import styles from '../Dashboards.module.css';
 
 const AdminDashboard = () => {
     return (
@@ -26,18 +26,18 @@ const AdminDashboard = () => {
                     <h2>Supply Items</h2>
                 </div>
               </a>
-              <a href="warranty-items">
+              {/* <a href="warranty-items">
                 <div className={styles.card}>
                     <img src="warranty-items.jpg" alt="Warranty Items" className={styles.cardImage} />
                     <h2>Warranty Items</h2>
                 </div>
-              </a>
-              <a href="repair-items">
+              </a> */}
+              {/* <a href="repair-items">
                 <div className={styles.card}>
                     <img src="repair-items.jpg" alt="Repair Items" className={styles.cardImage} />
                     <h2>Repair Items</h2>
                 </div>
-              </a>
+              </a> */}
               <a href="admins">
                 <div className={styles.card}>
                     <img src="admins.jpg" alt="Admins" className={styles.cardImage} />
@@ -66,6 +66,12 @@ const AdminDashboard = () => {
                 <div className={styles.card}>
                     <img src="complains.jpg" alt="Complains" className={styles.cardImage} />
                     <h2>Complains</h2>
+                </div>
+              </a>
+              <a href="Reports">
+                <div className={styles.card}>
+                    <img src="reports.jpg" alt="Reports" className={styles.cardImage} />
+                    <h2>Reports</h2>
                 </div>
               </a>
             </div>

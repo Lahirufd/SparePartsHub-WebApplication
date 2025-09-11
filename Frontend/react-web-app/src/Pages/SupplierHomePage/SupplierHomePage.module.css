@@ -1,3 +1,131 @@
+/* Quick Actions Section with right-aligned tiles and text */
+.quickActionsSection {
+  margin: 2.5rem 0;
+}
+.quickActionsContainer {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  background: #f7fafc;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  padding: 2.2rem 2.5rem;
+  gap: 2.5rem;
+}
+.quickActionsText {
+  flex: 1;
+  min-width: 220px;
+}
+.quickActionsText h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #222;
+}
+.quickActionsText p {
+  font-size: 1.1rem;
+  color: #444;
+  margin-bottom: 0;
+}
+.tilesRowRight {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 2.5rem;
+}
+/* Creative Sell Parts Section */
+.sellPartsSection {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+  margin: 2.5rem 0;
+  padding: 2.5rem 1.5rem;
+  background: linear-gradient(90deg, #e9f5ff 60%, #f7fafc 100%);
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+}
+.sellPartsLeft {
+  flex: 0 0 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sellPartsImage {
+  width: 320px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+.sellPartsRight {
+  flex: 1;
+  min-width: 220px;
+}
+.sellPartsRight h2 {
+  font-size: 2.1rem;
+  margin-bottom: 1rem;
+  color: #007bff;
+}
+.sellPartsRight p {
+  font-size: 1.15rem;
+  margin-bottom: 1.5rem;
+  color: #222;
+}
+.sellPartsButton {
+  background: linear-gradient(90deg, #007bff 60%, #0056b3 100%);
+  color: #fff;
+  padding: 0.85rem 2.2rem;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transition: background 0.2s;
+}
+.sellPartsButton:hover {
+  background: linear-gradient(90deg, #0056b3 60%, #007bff 100%);
+}
+
+/* Modern Quick Actions Tiles Section */
+.tilesRow {
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+  margin: 2.5rem 0 2rem 0;
+}
+.tileLink {
+  text-decoration: none;
+}
+.actionTile {
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.09);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+  min-width: 240px;
+  max-width: 280px;
+}
+.actionTile:hover {
+  transform: translateY(-6px) scale(1.04);
+  box-shadow: 0 6px 24px rgba(0,0,0,0.13);
+}
+.actionTile img {
+  width:280px;
+  height: 170px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 1.2rem;
+}
+.actionTile span {
+  font-size: 1.1rem;
+  color: #007bff;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
 .mainContent {
   padding: 2rem;
   background-color: #f0f0f0;
@@ -68,6 +196,38 @@
 
 .sellPartsButton:hover {
   background-color: #0056b3;
+}
+
+.serviceGrid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+
+.serviceCard {
+  text-align: center;
+  background-color: #fff;
+  padding: 1rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 8px;
+  margin: 0 auto;
+  max-width: 500px;
+}
+
+.serviceCard:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.serviceCard img {
+  max-width: 150px;
+  height: 150px;
+  margin-bottom: 0.75rem;
+  border-radius: 8px;
+  object-fit: cover;
 }
 
 /* Brands Section */

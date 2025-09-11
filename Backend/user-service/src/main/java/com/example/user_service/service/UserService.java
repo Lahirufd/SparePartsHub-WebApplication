@@ -42,4 +42,12 @@ public class UserService {
     public String findRoleByUsername(String username) {
         return userRepository.findRoleByUsername(username);
     }
+
+    public List<User> getCustomers() {
+        return userRepository.findByRole("customer");
+    }
+
+    public List<User> getSuppliers() {
+        return userRepository.findByRole("supplier");
+    }
 }

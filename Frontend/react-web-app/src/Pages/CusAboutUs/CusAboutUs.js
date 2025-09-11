@@ -28,7 +28,7 @@ const AboutUs = () => {
           </p>
         </div>
 
-        <div className={styles.contactForm}>
+        {/* <div className={styles.contactForm}>
           <h2>Add Your Feedbacks Here</h2>
           <form>
             <div className={styles.formGroup}>
@@ -45,7 +45,7 @@ const AboutUs = () => {
             </div>
             <button type="submit2">Send Feedback</button>
           </form>
-        </div>
+        </div> */}
         
       </div>
       <Footer />

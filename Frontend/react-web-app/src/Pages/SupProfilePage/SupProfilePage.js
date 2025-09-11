@@ -60,8 +60,45 @@ const ProfilePage = () => {
                     className={styles.cardImage} 
                   />
                 </a>
-                <h2>Sell History</h2>
+                <h2>Selling History</h2>
                 <p>View the history of all items you have sold on our platform.</p>
+              </div>
+              <div className={styles.card}>
+                <a href="cus-feedback-complaints">
+                  <img 
+                    src="cusfeed.png"
+                    alt="Cus Feedback Complaints" 
+                    className={styles.cardImage} 
+                  />
+                </a>
+                <h2>Your Feedbacks and Complaints</h2>
+                <p>View your submitted feedback and complaints, and track their resolution status.</p>
+              </div>
+
+              {/* New card: Account Settings */}
+              <div className={styles.card}>
+                <a href="account-settings">
+                  <img 
+                    src="settings.png"
+                    alt="Account Settings" 
+                    className={styles.cardImage} 
+                  />
+                </a>
+                <h2>Account Settings</h2>
+                <p>Update your personal information, change your password, and manage your preferences.</p>
+              </div>
+
+              {/* New card: Notifications */}
+              <div className={styles.card}>
+                <a href="notifications">
+                  <img 
+                    src="notifications.png"
+                    alt="Notifications" 
+                    className={styles.cardImage} 
+                  />
+                </a>
+                <h2>Notifications</h2>
+                <p>Check your latest notifications and stay updated on your orders and requests.</p>
               </div>
             </div>
           </div>
